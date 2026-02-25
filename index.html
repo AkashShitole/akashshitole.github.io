@@ -542,15 +542,16 @@ footer {
 }
 .hero-photo-wrap {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
   float: left;
-  margin-right: 1.5rem;
+  margin-right: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 .hero-photo-frame {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
 }
 .hero-photo-frame::before {
   content: '';
@@ -575,9 +576,9 @@ footer {
 }
 .hero-photo-frame img {
   position: absolute;
-  inset: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
+  inset: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -589,7 +590,7 @@ footer {
 .hero-photo-frame:hover img { filter: grayscale(0%) contrast(1.1); }
 .hero-photo-glow {
   position: absolute;
-  inset: -12px;
+  inset: -18px;
   border-radius: 50%;
   background: radial-gradient(ellipse at center, var(--green-glow) 0%, transparent 70%);
   z-index: 0;
