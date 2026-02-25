@@ -189,17 +189,19 @@ nav {
   margin-bottom: 0.5rem;
 }
 .hero-name .accent { color: var(--green); }
+.hero-name-text { min-width: 0; }
 .hero-title {
   font-family: 'Share Tech Mono', monospace;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: var(--text2);
   margin-bottom: 2rem;
-  display: flex; align-items: center; gap: 0.5rem;
+  white-space: nowrap;
 }
 .hero-title::after {
   content: '▮';
   color: var(--green);
   animation: blink 1s step-end infinite;
+  margin-left: 0.35rem;
 }
 @keyframes blink { 50% { opacity: 0; } }
 
