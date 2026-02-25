@@ -528,78 +528,70 @@ footer {
 
 /* HERO PHOTO */
 .hero-layout {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  align-items: center;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .hero-photo-wrap {
   position: relative;
-  width: 220px;
-  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 1.5rem;
 }
 .hero-photo-frame {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 88px;
+  height: 88px;
 }
 .hero-photo-frame::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  border: 1.5px solid var(--green);
-  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  z-index: 2;
+  inset: -2px;
+  border-radius: 50%;
+  background: conic-gradient(var(--green) 0%, var(--green3) 40%, transparent 60%, var(--green) 100%);
+  z-index: 0;
+  animation: spinBorder 6s linear infinite;
+}
+@keyframes spinBorder {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 .hero-photo-frame::after {
   content: '';
   position: absolute;
-  inset: 6px;
-  border: 1px solid var(--border2);
-  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  z-index: 2;
+  inset: 2px;
+  border-radius: 50%;
+  background: var(--bg);
+  z-index: 1;
 }
 .hero-photo-frame img {
-  width: 220px;
-  height: 220px;
+  position: absolute;
+  inset: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 50%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  filter: grayscale(20%) contrast(1.05);
+  z-index: 2;
+  filter: grayscale(15%) contrast(1.05);
   transition: filter 0.3s;
 }
 .hero-photo-frame:hover img { filter: grayscale(0%) contrast(1.1); }
 .hero-photo-glow {
   position: absolute;
-  inset: -20px;
+  inset: -12px;
+  border-radius: 50%;
   background: radial-gradient(ellipse at center, var(--green-glow) 0%, transparent 70%);
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.5;
   animation: photoGlow 3s ease-in-out infinite alternate;
 }
 @keyframes photoGlow {
-  from { opacity: 0.4; transform: scale(0.95); }
-  to   { opacity: 0.7; transform: scale(1.05); }
+  from { opacity: 0.3; transform: scale(0.95); }
+  to   { opacity: 0.6; transform: scale(1.05); }
 }
-.hero-photo-tag {
-  position: absolute;
-  bottom: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--green);
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  padding: 0.2rem 0.7rem;
-  white-space: nowrap;
-  letter-spacing: 0.1em;
-  z-index: 3;
-}
+.hero-photo-tag { display: none; }
 
 /* CONTACT SECTION */
 #contact-section {
@@ -690,8 +682,6 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero-layout { grid-template-columns: 1fr; }
-  .hero-photo-wrap { display: none; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -729,6 +719,13 @@ footer {
   <div class="hero-layout">
     <div class="hero-content">
       <div class="hero-tag">Cybersecurity Professional</div>
+      <!-- PROFILE PHOTO -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-glow"></div>
+          <img src="profile.jpg" alt="Akash Shitole" onerror="this.parentElement.parentElement.style.display='none'">
+        </div>
+      </div>
       <h1 class="hero-name">Akash<br><span class="accent">Shitole</span></h1>
       <p class="hero-title">Principal Security Engineer · MS Cybersecurity, Northeastern University</p>
       <p class="hero-bio">Cloud Security · Network Security · Vulnerability Assessment · Digital Forensics · Penetration Testing · Incident Response</p>
@@ -738,30 +735,18 @@ footer {
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">7+</div>
+          <div class="stat-num">4+</div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">200+</div>
-          <div class="stat-label">IOCs Assessed</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">90%</div>
-          <div class="stat-label">Risk Reduction</div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Compliance Frameworks</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">4</div>
           <div class="stat-label">Certifications</div>
         </div>
       </div>
-    </div>
-    <!-- PROFILE PHOTO -->
-    <div class="hero-photo-wrap">
-      <div class="hero-photo-frame">
-        <div class="hero-photo-glow"></div>
-        <img src="profile.jpg" alt="Akash Shitole" onerror="this.parentElement.parentElement.style.display='none'">
-      </div>
-      <div class="hero-photo-tag">// akash.shitole</div>
     </div>
   </div>
 </section>
